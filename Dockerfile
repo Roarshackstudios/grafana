@@ -1,6 +1,9 @@
-docker run -d \
--p 3000:3000 \
---name=grafanaserver \
--e "GF_SECURITY_ADMIN_USER=admin" \
--e "GF_SECURITY_ADMIN_PASSWORD=password" \
-grafana/grafana:latest
+# Use the official Grafana image from Docker Hub
+FROM grafana/grafana:latest
+
+# Set environment variables for Grafana admin credentials
+ENV GF_SECURITY_ADMIN_USER=admin
+ENV GF_SECURITY_ADMIN_PASSWORD=password
+
+# Expose port 3000 (default port for Grafana)
+EXPOSE 3000
